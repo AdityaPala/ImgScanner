@@ -1,0 +1,18 @@
+<h1>Image Skew Corrector</h1>
+<ul>
+  <table style="width:100%">
+  <tr>
+    <th>Original Image</th>
+    <th>Corrected Image</th>
+    <th>Skew Correction</th>
+  </tr>
+    {% for calc in object_list %}
+  <tr>
+    <td><a href="{{ calc.cover.url }}">{{ calc.cover.name }}</a></td>
+    <td><a href="object">Aditya P.</a></td>
+    <td>angle</td>
+  </tr>
+     {% endfor %}
+</table>
+    <h2>{{ calc.title }}</h2>
+</ul>

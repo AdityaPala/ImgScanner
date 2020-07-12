@@ -1,0 +1,16 @@
+<h1>Image Skew Corrector</h1>
+<ul>
+  <table style="width:100%">
+  <tr>
+    <th>Original Image</th>
+    <th>Corrected Image</th>
+    <th>Skew Correction</th>
+  </tr>
+        {% for instance in object_info %}
+  <tr>
+    <td><a href="object">{{ instance.name }}</a></td>
+    <td>angle</td>
+  </tr>
+        {% endfor %}
+</table>
+</ul>
