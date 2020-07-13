@@ -6,6 +6,7 @@ from django.conf import settings
 from SkewCorrector.lib.skewCorrector import Correction
 import cv2
 import os
+from django.core.files import File
 from django.http import HttpResponse, HttpResponseRedirect
 
 
@@ -20,7 +21,7 @@ class PostCreateView(CreateView):
         fields = ['title', 'cover']
         print("in CreatePostView...")
         template_name = 'post_form.html'
-        #success_url = reverse_lazy('home')
+        success_url = reverse_lazy('home')
 
         def form_valid(self, form):
             self.object = form.save()
@@ -28,8 +29,6 @@ class PostCreateView(CreateView):
             print ("self.model.title=", self.model.title)
             print("self.model.cover=", self.model.cover)
             print(form['cover'])
-            A = Correction(self.object.cover.url)
-            A.skewFix(self.object.cover.url)
             return HttpResponseRedirect(self.get_success_url())
 
 # def img_post(request):
