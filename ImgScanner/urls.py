@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.PostListView.as_view(), name='home'),
     path('post/', views.PostCreateView.as_view(), name='post-create'),
-    path('view/', views.home(request=True), name='post-view')
+    # path('view/', views.home(request=True), name='post-view')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

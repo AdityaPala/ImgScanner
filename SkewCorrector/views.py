@@ -6,20 +6,10 @@ from django.conf import settings
 from skewCorrector import Correction
 import cv2
 import os
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+
 
 # Create your views here.
-def home(request):
-    path = 'media/media/aetna_rotated.png'
-    img = cv2.imread(path)
-    A = Correction(img)
-    data = A.skewFix(img)
-    cont = {
-        'object_info': data
-    }
-    return render(request, 'corrected.html', cont)
-
-
 class PostListView(ListView):
     model = Post
     template_name = 'home.html'
@@ -30,7 +20,17 @@ class PostCreateView(CreateView):
         fields = ['title', 'cover']
         print("in CreatePostView...")
         template_name = 'post_form.html'
-        success_url = reverse_lazy('home')
+        #success_url = reverse_lazy('home')
+
+        def form_valid(self, form):
+            self.object = form.save()
+            print("form=", form)
+            print ("self.model.title=", self.model.title)
+            print("self.model.cover=", self.model.cover)
+            print(form['cover'])
+            A = Correction(self.object.cover.url)
+            A.skewFix(self.object.cover.url)
+            return HttpResponseRedirect(self.get_success_url())
 
 # def img_post(request):
 #     model = Post
