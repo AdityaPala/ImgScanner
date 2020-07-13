@@ -1,5 +1,5 @@
 from django.db import models
-from skewCorrector import Correction
+from SkewCorrector.lib.skewCorrector import Correction
 
 # Create your models here.
 class Post(models.Model):

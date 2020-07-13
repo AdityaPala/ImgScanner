@@ -1,0 +1,28 @@
+diff --git a/skewCorrector.py b/SkewCorrector/lib/skewCorrector.py
+similarity index 100%
+rename from skewCorrector.py
+rename to SkewCorrector/lib/skewCorrector.py
+diff --git a/SkewCorrector/models.py b/SkewCorrector/models.py
+index 2768b18..305ef06 100644
+--- a/SkewCorrector/models.py
++++ b/SkewCorrector/models.py
+@@ -1,5 +1,5 @@
+ from django.db import models
+-from skewCorrector import Correction
++from SkewCorrector.lib.skewCorrector import Correction
+ 
+ # Create your models here.
+ class Post(models.Model):
+diff --git a/SkewCorrector/views.py b/SkewCorrector/views.py
+index 3937f24..aa90659 100644
+--- a/SkewCorrector/views.py
++++ b/SkewCorrector/views.py
+@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
+ from SkewCorrector.models import Post
+ from django.views.generic import ListView, CreateView
+ from django.conf import settings
+-from skewCorrector import Correction
++from SkewCorrector.lib.skewCorrector import Correction
+ import cv2
+ import os
+ from django.http import HttpResponse, HttpResponseRedirect

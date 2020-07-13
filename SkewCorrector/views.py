@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from SkewCorrector.models import Post
 from django.views.generic import ListView, CreateView
 from django.conf import settings
-from skewCorrector import Correction
+from SkewCorrector.lib.skewCorrector import Correction
 import cv2
 import os
 from django.http import HttpResponse, HttpResponseRedirect
