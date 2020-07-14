@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='post',
             name='cover',
-            field=models.ImageField(upload_to='media/'),
+            field=models.ImageField(upload_to='input/'),
         ),
     ]

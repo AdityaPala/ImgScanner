@@ -5,7 +5,7 @@ from ImgScanner import settings
 import io
 
 #{{ SkewCorrection.cover.url }}
-path = "media/media/aetna_rotated.png"
+path = "media/input/aetna_rotated.png"
 # img = cv2.imread(path)
 
 class Correction:
@@ -14,7 +14,7 @@ class Correction:
         # self.name = img.name
         # self.result_file_path = "{}/media/output/{}".format(
         #     settings.BASE_DIR, self.name)
-        self.result_file_path = img.replace('/media/media', '/media/output')
+        self.result_file_path = img.replace('/media/input', '/media/output')
         # self.img = cv2.imdecode(
         #     np.fromstring(img.read(), np.uint8), cv2.IMREAD_UNCHANGED)
         self.img = cv2.imread(img)

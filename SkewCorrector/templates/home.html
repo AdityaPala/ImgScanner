@@ -6,13 +6,15 @@
     <th>Corrected Image</th>
     <th>Skew Correction</th>
   </tr>
-    {% for calc in object_list %}
+    {% for img in object_list %}
   <tr>
-    <td><a href="{{ calc.cover.url }}">{{ calc.cover.name }}</a></td>
-    <td><a href="object">Aditya P.</a></td>
-    <td>angle</td>
+    <td><a href="{{ img.cover.url }}">{{ img.cover.name }}</a></td><td>
+      {% if img.processed_cover %}
+        <a href="{{ img.processed_cover.url }}">{{ img.processed_cover.name }}</a>
+      {% endif %}
+    </td>
+      <td>{{ img.rotate_angle.real }}</td>
   </tr>
      {% endfor %}
 </table>
-    <h2>{{ calc.title }}</h2>
 </ul>
